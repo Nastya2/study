@@ -3,12 +3,14 @@
 //   Написать функцию isInArray(), которая начиная со второго принимает переменное количество аргументов.
 //   Возвращает true, если все аргументы, кроме первого входят в первый.
 //   Первым всегда должен быть массив.
+Object.defineProperty(exports, "__esModule", { value: true });
 function isInArray(foreverArray, ...something) {
     if (Array.isArray(foreverArray)) {
         return something.every((item) => foreverArray.includes(item));
     }
     return false;
 }
+exports.isInArray = isInArray;
 let resultisInArray = isInArray([1, 2, 'g', true], 1, 2);
 console.log(resultisInArray);
 // 2)

@@ -6,16 +6,12 @@
 
 type typesIsInArray = string | number |  boolean;
 
-function isInArray(foreverArray:typesIsInArray[],...something: typesIsInArray[]): boolean {
+export function isInArray(foreverArray:typesIsInArray[],...something: typesIsInArray[]): boolean {
   if(Array.isArray(foreverArray)) {
     return something.every((item) => foreverArray.includes(item));
   }
   return false;
 }
-
-let resultisInArray = isInArray([1,2,'g',true],1,2);
-console.log(resultisInArray);
-
 
 // 2)
 //  Написать функцию summator(), которая суммирует переданые ей аргументы.

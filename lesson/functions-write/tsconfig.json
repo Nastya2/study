@@ -1,9 +1,8 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es2017"
+    "target": "es2017",
+    "sourceMap": true
   },
-  "include": [
-    "./homework.ts"
-  ]
+  "include": ["**/*.ts"]
 }
