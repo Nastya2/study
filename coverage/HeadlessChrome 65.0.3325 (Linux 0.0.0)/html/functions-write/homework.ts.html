@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">95.83% </span>
+        <span class="strong">93.75% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>23/24</span>
+        <span class='fraction'>15/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>5/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">95% </span>
+        <span class="strong">92.86% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>19/20</span>
+        <span class='fraction'>13/14</span>
       </div>
     </div>
   </div>
@@ -90,16 +90,7 @@
 45
 46
 47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+48</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -119,21 +110,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">4×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,20 +128,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10×</span>
-<span class="cline-any cline-yes">4×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 // 1)
 //   Написать функцию isInArray(), которая начиная со второго принимает переменное количество аргументов.
 //   Возвращает true, если все аргументы, кроме первого входят в первый.
@@ -178,18 +160,15 @@ function isString(a: string | number): a is string {
   return typeof a === 'string';
 }
 &nbsp;
-function summator(...args: (number | string)[]): number {
+export function summator(...args: (number | string)[]): number {
 &nbsp;
- let argsNumber:number[] =  args.map((item)=&gt; isString(item) ?  Number(item): item);
+  let argsNumber:number[] =  args.map((item)=&gt; isString(item) ?  Number(item): item);
     
-  let res =  argsNumber.reduce(function(sum, current): number {
-    return sum + current;
+  return argsNumber.reduce((sum:number, current:number): number =&gt; {
+      isNaN(current) ? current = 0: current;
+      return sum + current;
   }, 0);
-  return res;
 }
-&nbsp;
-let resultSummator = summator(1,1,1,'5');
-console.log(resultSummator);
 &nbsp;
 // 3)
 //   Написать функцию getUnique(arr), которая принимает аргументом неограниченое число аргументов,
@@ -198,26 +177,20 @@ console.log(resultSummator);
 //   в котором они встречаются в оригинальной структуре.
 &nbsp;
 &nbsp;
-function getUnique(...arr: typesIsInArray[]): typesIsInArray[] {
+export function getUnique(...arr: typesIsInArray[]): typesIsInArray[] {
 &nbsp;
-  let argArray: Readonly&lt;typesIsInArray[]&gt; = arr.slice(),
-      storage: Set&lt;typesIsInArray&gt; = new Set(),
-      uniqueArr: typesIsInArray[] = [];
-&nbsp;
-  argArray.forEach((item) =&gt; storage.add(item));
-  storage.forEach((item)=&gt; uniqueArr.push(item));
-&nbsp;
-  return uniqueArr;          
-}
-&nbsp;
-let resultGetUnique = getUnique(1,2,1,3,true,true,true,1,2,3);
-console.log(resultGetUnique);</pre></td></tr>
+  return Array.from(
+    arr.reduce((accumulator:Set&lt;typesIsInArray&gt;, el:typesIsInArray): Set&lt;typesIsInArray&gt; =&gt;  {
+      return  accumulator.add(el);
+    },new Set())
+  );        
+}</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Feb 26 2019 17:55:15 GMT+0300 (MSK)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Mar 01 2019 17:45:41 GMT+0300 (MSK)
 </div>
 </div>
 <script src="../prettify.js"></script>

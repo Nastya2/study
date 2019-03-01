@@ -21,18 +21,15 @@ function isString(a: string | number): a is string {
   return typeof a === 'string';
 }
 
-function summator(...args: (number | string)[]): number {
+export function summator(...args: (number | string)[]): number {
 
- let argsNumber:number[] =  args.map((item)=> isString(item) ?  Number(item): item);
+  let argsNumber:number[] =  args.map((item)=> isString(item) ?  Number(item): item);
     
-  let res =  argsNumber.reduce(function(sum, current): number {
-    return sum + current;
+  return argsNumber.reduce((sum:number, current:number): number => {
+      isNaN(current) ? current = 0: current;
+      return sum + current;
   }, 0);
-  return res;
 }
-
-let resultSummator = summator(1,1,1,'5');
-console.log(resultSummator);
 
 // 3)
 //   Написать функцию getUnique(arr), которая принимает аргументом неограниченое число аргументов,
@@ -41,17 +38,11 @@ console.log(resultSummator);
 //   в котором они встречаются в оригинальной структуре.
 
 
-function getUnique(...arr: typesIsInArray[]): typesIsInArray[] {
+export function getUnique(...arr: typesIsInArray[]): typesIsInArray[] {
 
-  let argArray: Readonly<typesIsInArray[]> = arr.slice(),
-      storage: Set<typesIsInArray> = new Set(),
-      uniqueArr: typesIsInArray[] = [];
-
-  argArray.forEach((item) => storage.add(item));
-  storage.forEach((item)=> uniqueArr.push(item));
-
-  return uniqueArr;          
+  return Array.from(
+    arr.reduce((accumulator:Set<typesIsInArray>, el:typesIsInArray): Set<typesIsInArray> =>  {
+      return  accumulator.add(el);
+    },new Set())
+  );        
 }
-
-let resultGetUnique = getUnique(1,2,1,3,true,true,true,1,2,3);
-console.log(resultGetUnique);
