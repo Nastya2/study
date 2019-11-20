@@ -2,7 +2,7 @@ interface FlyBehavior {
     fly(): void;
 }
 
-class FlyWithWings implements FlyBehavior { // класс поведения
+class FlyWithWings implements FlyBehavior { // классы поведения
     public fly(): void {
         console.log('i am flying!');
     }

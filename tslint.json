@@ -37,19 +37,12 @@
       "member-variable-declaration"
     ],
     "typedef-whitespace": [
-      true,
-      {
-        "call-signature": "nospace",
-        "index-signature": "nospace",
-        "parameter": "nospace",
-        "property-declaration": "nospace",
-        "variable-declaration": "nospace"
-      }
+      false
     ],
 
     "class-name": true,
     "no-console": [
-      true,
+      false,
       "log",
       "debug",
       "info",
@@ -68,8 +61,7 @@
       20
     ],
     "max-classes-per-file": [
-      true,
-      1
+      true
     ],
     "max-file-line-count": [
       true,
